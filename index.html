@@ -110,6 +110,44 @@
 }
 
 
+    .progress {
+        height: 10px; /* Reduced height */
+        border-radius: 5px; /* Smooth rounded edges */
+    }
+
+    .progress-bar {
+        border-radius: 5px;
+    }
+
+    .skill-mf span {
+        font-size: 14px; /* Reduce font size for skill names */
+    }
+
+    .skill-mf .title-s {
+        font-size: 18px; /* Adjust title size */
+        font-weight: bold;
+    }
+
+    .skill-mf {
+        max-width: 600px; /* Limit width for better alignment */
+        margin: auto; /* Center align */
+    }
+	.profile-img {
+        width: 400px; /* Adjust width */
+        height: 400px; /* Adjust height */
+        border-radius: 50%; /* Makes it circular */
+        object-fit: cover; /* Ensures proper cropping */
+        display: block;
+        margin:20%; /* Centers the image */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adds slight shadow for effect */
+    }
+
+    .image-container {
+        text-align:center; /* Centers the image */
+        padding: 40px;
+    }
+
+
 </style>
 
 
@@ -140,8 +178,9 @@
 	       <div class="slider-item ">
 	      	<div class="overlay"></div>
 	         <div class="container">
-	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(IMG_3005.jpeg);">
+				<div class="row d-md-flex no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+					<div class="col-md-6 col-lg-4 order-md-last image-container">
+						<img src="IMG_3005.jpeg" class="profile-img" alt="Profile Image">
 	          	 <div class="overlay"></div>
 	          	</div>
 		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '60%' }">
@@ -206,11 +245,11 @@
 
 
 
-    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+    <!--section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
     	<div class="container">
 			<div class="row">
 				<div class="row d-flex align-items-stretch">
-				<!-- <div class="row d-flex"> -->
+				< <div class="row d-flex"> >
 					<div class="col-md-6 col-lg-5 d-flex">
 						<div class="img-about img d-flex align-items-stretch">
 							<div class="overlay">
@@ -220,7 +259,7 @@
 										<img src="IMG_1603 (1) (1).jpg" class="img-fluid rounded b-shadow-a" alt="">
 									  </div>
 									</div>
-									<!-- Details next to profile image -->
+									< Details next to profile image>
 									<div class="col-sm-6 col-md-7">
 									  <div class="about-info">
 										<p><span class="title-s">Name: </span> <span>Saranya Madala</span></p>
@@ -229,9 +268,12 @@
 										<p><span class="title-s">Address: </span> <span>Texas, United States</span></p>
 									  </div>
 									</div>
-								  </div>
+								  </div -->
+								  
+								
+								
 
-								<div class="skill-mf">
+								<!--div class="skill-mf">
 									<p class="title-s">Skills</p>
 									<span>SQL</span> <span class="pull-right">95%</span>
 									<div class="progress">
@@ -267,11 +309,74 @@
 										<div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0"
 											aria-valuemax="100"></div>
 									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					
+								</div-->
+								<section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+									<div class="container">
+										<div class="row d-flex align-items-center">
+											<!-- Left Side: Profile -->
+											<div class="col-md-6 col-lg-5 d-flex justify-content-center">
+												<div class="img-about img text-center">
+													<img src="IMG_1603 (1) (1).jpg" class="img-fluid rounded-circle shadow-sm" alt="Profile Image" style="width: 150px; height: 150px; object-fit: cover;">
+													<div class="about-info mt-3">
+														<p><span class="title-s">Name: </span> <span>Saranya Madala</span></p>
+														<p><span class="title-s">Job Role: </span> <span>Fresher</span></p>
+														<p><span class="title-s">Address: </span> <span>Texas, United States</span></p>
+													</div>
+												</div>
+											</div>
+								
+											<!-- Right Side: Skills Section -->
+											<div class="col-md-6 col-lg-7">
+												<div class="skill-mf">
+													<p class="title-s">Skills</p>
+													
+													<div class="mb-2">
+														<span>SQL</span> <span class="float-right">95%</span>
+														<div class="progress">
+															<div class="progress-bar bg-primary" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+								
+													<div class="mb-2">
+														<span>Python</span> <span class="float-right">95%</span>
+														<div class="progress">
+															<div class="progress-bar bg-success" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+								
+													<div class="mb-2">
+														<span>Data Visualization</span> <span class="float-right">90%</span>
+														<div class="progress">
+															<div class="progress-bar bg-warning" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+								
+													<div class="mb-2">
+														<span>Statistical Analysis</span> <span class="float-right">85%</span>
+														<div class="progress">
+															<div class="progress-bar bg-info" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+								
+													<div class="mb-2">
+														<span>Machine Learning</span> <span class="float-right">80%</span>
+														<div class="progress">
+															<div class="progress-bar bg-danger" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+								
+													<div class="mb-2">
+														<span>Web Scraping</span> <span class="float-right">90%</span>
+														<div class="progress">
+															<div class="progress-bar bg-secondary" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+								
 					<div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
 						<div class="row justify-content-start pb-3">
 							<div class="col-md-12 heading-section ftco-animate">
@@ -307,7 +412,7 @@
     </section>
 
 	<div class="row">
-		<h1 class="big-4">Internship Experience</h1>
+		<h1 class="big-4"><b>Internship Experience</b></h1>
 		<div class="underline"></div>
 	</div>
 	<br>
@@ -373,7 +478,7 @@
 		
 
 		<div class="row">
-			<h1 class="big-4">Education</h1>
+			<h1 class="big-4"><b>Education</b></h1>
 			<div class="underline"></div>
 		</div>
 		<br>
@@ -449,17 +554,45 @@
             </div>
           </div>
         </div>
-	<div class="col-md-4 d-flex ftco-animate">
-			<div class="blog-entry">
-			<a href="https://app.powerbi.com/links/84kYgcnNvL?ctid=70de1992-07c6-480f-a318-a1afcba03983&pbi_source=linkShare" class="block-20 zoom-effect" style="background-image: url(netflix.jpg);">
-			</a>
-
-			<div class="text mt-3 float-right d-block">
-
-			  <h3 class="heading"><a href="https://app.powerbi.com/links/84kYgcnNvL?ctid=70de1992-07c6-480f-a318-a1afcba03983&pbi_source=linkShare">Netflix Analysis Dashboard </a></h3>
-			  <p>I created a Power BI dashboard by importing and analyzing a Netflix's dataset, focusing on key insights and visualizing essential details for a comprehensive overview.</p>
+		<div class="row">
+			<!-- Netflix Analysis Project -->
+			<div class="col-md-4 d-flex ftco-animate">
+				<div class="blog-entry">
+					<a href="https://app.powerbi.com/links/84kYgcnNvL?ctid=70de1992-07c6-480f-a318-a1afcba03983&pbi_source=linkShare" 
+					   class="block-20 zoom-effect" 
+					   style="background-image: url('netflix.jpg');">
+					</a>
+		
+					<div class="text mt-3 float-right d-block">
+						<h3 class="heading">
+							<a href="https://app.powerbi.com/links/84kYgcnNvL?ctid=70de1992-07c6-480f-a318-a1afcba03983&pbi_source=linkShare" target="_blank">
+								Netflix Analysis Dashboard
+							</a>
+						</h3>
+						<p>I created a Power BI dashboard by importing and analyzing a Netflix dataset, focusing on key insights and visualizing essential details for a comprehensive overview.</p>
+					</div>
+				</div>
 			</div>
-	</div>
+		
+			<!-- Supermarket Management System Project -->
+			<div class="col-md-4 d-flex ftco-animate">
+				<div class="blog-entry">
+					<a href="https://github.com/SaranyaM15/Super_market" 
+					   class="block-20 zoom-effect" 
+					   style="background-image: url('Supermarket%20Management%20Systems.png');">
+					</a>
+		
+					<div class="text mt-3 float-right d-block">
+						<h3 class="heading">
+							<a href="https://github.com/SaranyaM15/Super_market" target="_blank">
+								Supermarket Management System
+							</a>
+						</h3>
+						<p>Developed a web-based Inventory Management System for a supermarket using Flask, MySQL, HTML, and CSS. This beginner-level application allows users to add, update, and view products and suppliers efficiently.</p>
+				</div>
+			</div>
+		</div>
+		
 	<br>
 		
     </section>
@@ -503,7 +636,7 @@
           			<span class="icon-paper-plane"></span>
           		</div>
           		<h3 class="mb-4">Email Address</h3>
-	            <p><a href="mailto:info@yoursite.com">madalasaranya2002@gmail.com</a></p>
+	            <p><a href="mailto:info@yoursite.com">SaranyaMadala@my.unt.edu</a></p>
 	          </div>
           </div>
           <div class="col-md-6 col-lg-3 d-flex ftco-animate">
