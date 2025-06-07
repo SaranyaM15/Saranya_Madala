@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Saranya Madala Portfolio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Original CSS (Keep these if they are still heavily used, or gradually refactor to Tailwind) -->
+    <!-- It's generally better to link external CSS files than to have large style blocks -->
+    <!-- For this example, I'm keeping your original CSS links. You might want to consolidate them. -->
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- Your main custom stylesheet -->
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              warning: '#A9D6E5', // Your theme's warning color
+              darkBg: '#240046', // Your theme's dark background
+              blackBg:  '#10002b', // Your theme's black background
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              poppins: ['Poppins', 'sans-serif'],
+            },
+          }
+        }
+      }
+    </script>
+
+<style>
+    /* Consolidated Custom CSS - Consider moving to style.css */
+    body {
+        font-family: 'Poppins', sans-serif; /* Fallback if Inter is not loaded or for specific elements */
+        /* background-color: #000; */ /* Base background color */
+        /* color: #fff; */ /* Base text color */
+    }
+
+    /* Navbar styling if not fully covered by Bootstrap/Tailwind */
+    .site-navbar-target {
+        /* background-color: #000 !important; /* Ensure navbar background is black */
+        /* Tailwind equivalent: bg-blackBg */
+    }
+    .navbar-brand {
+        color: #a18e28 !important; /* Tailwind equivalent: text-warning */
+    }
+    .nav-link {
+        color: #fff !important; /* Tailwind equivalent: text-white */
+    }
+    .nav-link:hover {
+        color: #a18e28 !important; /* Tailwind equivalent: hover:text-warning */
+    }
+    .oi-menu {
+        color: #a18e28; /* Tailwind equivalent: text-warning */
+    }
+
+
+    /* About Me Section - Original Styles (can be refactored to Tailwind) */
+    .about-mf .box-shadow-full {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+    .about-mf .about-img {
+        margin-bottom: 2rem;
+    }
+    .about-mf .about-img img {
+        margin-left: 10px;
+    }
+   .about-mf .box-shadow-full { padding-top: 4rem; padding-bottom: 4rem; }
+    .about-mf .about-img { margin-bottom: 2rem; }
+    .about-mf .about-img img { margin-left: 10px; }
+    .skill-mf .progress { margin: .5rem 0 1.2rem 0; border-radius: 0; height: .7rem; }
+    .skill-mf .progress .progress-bar { height: .7rem; background-color: #e08ca5; }
+    .skill-mf span { font-size: 14px; }
+    .skill-mf .title-s { font-size: 18px; font-weight: bold; }
+    .skill-mf { max-width: 600px; margin: auto; }
+    /* Typing Animation - Original Styles */
+    #typing-animation-container { /* Added a container for better control */
+        position: relative;
+        font-size: 30px;
+        font-weight: bold;
+        color: rgb(255, 255, 255); /* Tailwind: text-white */
+        overflow: hidden;
+        white-space: nowrap;
+        display: inline-block; /* Important for proper width calculation */
+        vertical-align: bottom;
+    }
+    #typing-animation {
+        display: inline-block;
+        animation: typing 3s steps(20, end) infinite; /* Animation will be controlled by JS */
+    }
+    /* Cursor can be a pseudo-element or a separate span if needed */
+    #typing-animation-container::after {
+        content: "|";
+        /* position: absolute; */
+        /* right: -5px; */
+        /* top: 0; */
+        /* height: 100%; */
+        color: #f9f9f7; /* Tailwind: text-warning */
+        animation: blink-cursor 0.7s step-end infinite;
+    }
+
+    @keyframes typing {
+        from { width: 1; }
+        to { width: 100%; } /* JS will set the target width */
+    }
+    @keyframes blink-cursor {
+        from, to { opacity: 1; }
+        50% { opacity: 0; }
+    }
+
+    /* Project Image Zoom Effect - Original Styles */
+    .zoom-effect {
+        overflow: hidden;
+        transition: transform 0.3s ease-out;
+    }
+    .zoom-effect:hover {
+        transform: scale(1.1);
+    }
+
+    /* Profile Image in Hero Section - Original Styles */
+    .profile-img {
+        width: 400px; /* Adjusted for responsiveness */
+        height: 400px; /* Adjusted for responsiveness */
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto 20px auto; /* Centering */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    /* Ensure hero section text is legible */
+    .hero .slider-text .text {
+        /* background-color: rgba(0,0,0,0.5); /* Optional: slight background for text if image is too bright */
+        padding: 1rem;
+        border-radius: 0.5rem; /* Tailwind: rounded-lg */
+    }
+
+    /* General Section Styling (can be replaced by Tailwind) */
+    .ftco-section {
+        padding: 6em 0; /* Example padding, adjust as needed */
+        /* background-color: #000; */ /* Tailwind: bg-blackBg */
+    }
+    .heading-section .big {
+        font-size: 5rem; /* Adjust as needed */
+        font-weight: bold;
+        color: rgba(255, 215, 0, 0.1); /* Very light warning color */
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -0.3em;
+        z-index: -1;
+        /* Tailwind can handle this with opacity and positioning utilities */
+    }
+    .heading-section h2 {
+        font-size: 2.5rem; /* Adjust as needed */
+        font-weight: bold;
+        color: #a18e28; /* Tailwind: text-warning */
+        margin-bottom: 1rem; /* Tailwind: mb-4 */
+    }
+    .heading-section p {
+        color: #ccc; /* Lighter text color */
+        /* Tailwind: text-gray-300 */
+    }
+
+    /* Contact section icons */
+    .contact-section .box .icon span {
+        font-size: 2rem; /* Adjust as needed */
+        color: #a18e28; /* Tailwind: text-warning */
+    }
+    .contact-section .box h3 {
+        color: #a18e28; /* Tailwind: text-warning */
+    }
+    .contact-section .box p, .contact-section .box p a {
+        color: #fff; /* Tailwind: text-white */
+    }
+    .contact-section .box p a:hover {
+        color: #a18e28; /* Tailwind: hover:text-warning */
+    }
+
+    /* Footer social icons */
+    .ftco-footer-social li a span {
+        color: #a18e28; /* Tailwind: text-warning */
+    }
+    .ftco-footer-social li a:hover span {
+        color: #fff; /* Tailwind: hover:text-white */
+    }
+
+    /* Ensure buttons have good contrast and style */
+    .btn-primary {
+        background-color: #a18e28 !important; /* Tailwind: bg-warning */
+        border-color: #a18e28 !important; /* Tailwind: border-warning */
+        color: #000 !important; /* Tailwind: text-blackBg */
+        position: relative;
+    }
+    .btn-primary:hover {
+        background-color: #a18e28 !important; /* Darker warning */
+        border-color: #a18e28 !important;
+    }
+    .btn-outline-white {
+        border-color: #a18e28 !important; /* Tailwind: border-warning */
+        color: #a18e28!important; /* Tailwind: text-warning */
+        position: center;
+    }
+    .btn-outline-white:hover {
+        background-color: #a18e28 !important; /* Tailwind: bg-warning */
+        color: #000 !important; /* Tailwind: text-blackBg */
+    }
+    
+    /* Specific overrides for sections to use Tailwind more effectively */
+    #home-section, #about-section, #skills-section, #internship-section, #education-section, #honors-awards-section, #project-section, #contact-section, footer {
+        background-color: theme('colors.blackBg'); /* Use Tailwind configured black */
+        color: theme('colors.gray.200'); /* Default text color for sections */
+    }
+
+    #home-section .subheading {
+        color: theme('colors.gray.400');
+    }
+    #home-section h1, #home-section h2 {
+        color: theme('colors.white');
+    }
+    #home-section h1 span {
+        color: theme('colors.warning');
+    }
+
+    .big-2 { /* Project section big text */
+        color: rgba(255, 215, 0, 0.05) !important; /* Even lighter for project section */
+    }
+    
+    /* Skill Pill Styling */
+    .skill-pill {
+        background-color: theme('colors.skillPillBg');
+        color: theme('colors.skillPillText');
+        padding: 0.3rem 0.75rem; /* py-1 px-3 */
+        border-radius: 9999px; /* rounded-full */
+        font-size: 0.875rem; /* text-sm */
+        margin: 0.25rem; /* m-1 */
+        display: inline-flex; /* Allows icon and text on same line */
+        align-items: center;
+        transition: all 0.2s ease-in-out;
+    }
+    .skill-pill:hover {
+        background-color: theme('colors.warning');
+        color: theme('colors.blackBg');
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(255, 215, 0, 0.2);
+    }
+    .skill-pill i {
+        margin-right: 0.375rem; /* mr-1.5 */
+    }
+    .skill-category-card {
+        background-color: theme('colors.darkBg');
+        border-left: 4px solid theme('colors.warning');
+    }
+
+    
+    /* Resume/Education/Honors card styling */
+    .resume-wrap {
+        background-color: theme('colors.darkBg'); /* Tailwind: bg-darkBg */
+        color: theme('colors.gray.300'); /* Tailwind: text-gray-300 */
+    }
+    .resume-wrap .date {
+        color: theme('colors.warning'); /* Tailwind: text-warning */
+        font-weight: bold;
+    }
+    .resume-wrap h2 {
+        color: theme('colors.white'); /* Tailwind: text-white */
+    }
+    .resume-wrap .position {
+        color: theme('colors.warning'); /* Tailwind: text-warning */
+        font-style: italic;
+    }
+    .resume-wrap ul li {
+        color: theme('colors.gray.300'); /* Tailwind: text-gray-300 */
+    }
+
+    /* Ensure images in project cards have a background or are clearly visible */
+    .blog-entry .block-20 {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 250px; /* Ensure image area is visible */
+        display: block;
+        border-radius: 0.25rem; /* Tailwind: rounded */
+        margin-bottom: 1rem; /* Tailwind: mb-4 */
+    }
+    .blog-entry h3 a {
+        color: theme('colors.warning');
+    }
+     .blog-entry h3 a:hover {
+        color: theme('colors.white');
+    }
+    .blog-entry p {
+        color: theme('colors.gray.300');
+    }
+
+</style>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" class="bg-blackBg text-gray-200 font-poppins">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg site-navbar-target sticky top-0 z-50 bg-blackBg shadow-md" id="ftco-navbar">
+        <div class="container mx-auto px-4">
+            <a class="navbar-brand text-warning text-2xl font-bold" href="index.html">Saranya</a>
+            <button class="navbar-toggler text-warning border-warning" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto space-x-4">
+                    <li class="nav-item"><a href="#home-section" class="nav-link hover:text-warning">Home</a></li>
+                    <li class="nav-item"><a href="#about-section" class="nav-link hover:text-warning">About</a></li>
+                    <li class="nav-item"><a href="#skills-section" class="nav-link hover:text-warning">Skills</a></li>
+                    <li class="nav-item"><a href="#resume-section" class="nav-link hover:text-warning">Resume</a></li>
+                     <li class="nav-item"><a href="#honors-awards-section" class="nav-link hover:text-warning">Honors</a></li>
+                    <li class="nav-item"><a href="#project-section" class="nav-link hover:text-warning">Projects</a></li>
+                    <li class="nav-item"><a href="#contact-section" class="nav-link hover:text-warning">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home section -->
+    <section id="home-section" class="hero min-h-screen flex items-center justify-center py-16 lg:py-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-center text-center md:text-left">
+                <!-- Image Column -->
+                <div class="w-full md:w-1/3 lg:w-2/5 order-first md:order-last mb-8 md:mb-0">
+                    <img src="mine.jpg" class="profile-img" alt="Profile Image Saranya Madala"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x400/1a1a1a/FFD700?text=Image+Not+Found';">
+                </div>
+                <!-- Text Column -->
+                <div class="w-full md:w-2/3 lg:w-3/5 md:pr-8">
+                    <span class="subheading text-gray-400 text-lg">Hello!</span>
+                    <h1 class="text-4xl lg:text-5xl font-bold mt-2 mb-4 text-white">I'm <span class="text-warning">Saranya Madala</span></h1>
+                    <div id="typing-animation-container" class="h-10 mb-4">
+                        <span id="typing-animation"></span>
+                    </div>
+                    <h2 class="text-2xl lg:text-3xl text-gray-300 mb-6">Student</h2>
+                    <div class="flex justify-center space-x-4">
+                        <a href="https://www.linkedin.com/in/saranyamadala/" target="_blank" rel="noopener noreferrer" class="btn btn-primary py-3 px-6 rounded-md text-lg">LinkedIn</a> 
+                        <a href="https://github.com/SaranyaM15" target="_blank" rel="noopener noreferrer" class="btn btn-outline-white py-3 px-6 rounded-md text-lg">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about-section" class="py-16 lg:py-24 bg-darkBg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h1 class="text-5xl lg:text-7xl font-bold text-warning opacity-10 absolute left-0 right-0 -top-4 z-0">About</h1>
+                <h2 class="text-3xl lg:text-4xl font-bold text-warning relative z-10">About Me</h2>
+            </div>
+            <div class="flex flex-col md:flex-row items-center bg-blackBg p-6 md:p-8 rounded-lg shadow-xl">
+                <div class="md:w-1/3 text-center mb-6 md:mb-0">
+                    <div class="p-4 rounded-lg">
+                        <img src="Saranya.jpg" alt="Saranya Madala Profile Picture" class="w-36 h-36 md:w-44 md:h-44 mx-auto rounded-full shadow-lg object-cover"
+                             onerror="this.onerror=null; this.src='https://placehold.co/180x180/1a1a1a/FFD700?text=Image+Error';">
+                        <h4 class="mt-4 text-xl font-bold text-warning">Saranya Madala</h4>
+                        <p class="text-gray-300">Fresher | Computer Science Enthusiast</p>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-8">
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        Computer Science enthusiast and Master's student at the University of North Texas with hands-on experience in building full-stack applications. 
+    Developed an award-winning multilingual navigation system using React and the Google Translate API, and engineered user-friendly interfaces 
+    for machine learning systems. Seeking a challenging software development role to build and deploy impactful and practical solutions.
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex"><strong class="text-warning w-32">Education:</strong> Masters in Computer Science</li>
+                        <li class="flex"><strong class="text-warning w-32">Languages:</strong> English, Telugu</li>
+                        <li class="flex"><strong class="text-warning w-32">BI Tools:</strong> Microsoft Power BI</li>
+                        <li class="flex"><strong class="text-warning w-32">Other Skills:</strong> Cloud, Git, GitHub, Java & Neural Networks</li>
+                        <li class="flex"><strong class="text-warning w-32">Interests:</strong> Photography, Cooking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills-section" class="py-16 lg:py-24 bg-gradient-to-r from-blackBg to-gray-900 text-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16 relative">
+            <h1 class="text-6xl lg:text-8xl font-extrabold text-warning opacity-10 absolute left-0 right-0 -top-6 z-0">Skills</h1>
+            <h2 class="text-4xl lg:text-5xl font-bold text-warning relative z-10 tracking-wide">Technical Skills</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-14">
+            <!-- Programming Languages -->
+            <div class="skill-category-card p-8 rounded-lg shadow-xl bg-gray-800 transition-transform transform hover:scale-105">
+                <h3 class="text-2xl font-semibold text-warning mb-6 flex items-center"><i class="fas fa-code mr-3"></i>Programming Languages</h3>
+                <div class="flex flex-wrap gap-4">
+                    <span class="skill-pill"><i class="fab fa-python"></i>Python (Advanced)</span>
+                    <span class="skill-pill"><i class="fab fa-java"></i>Java (Intermediate)</span>
+                    <span class="skill-pill"><i class="fab fa-js-square"></i>JavaScript</span>
+                    <span class="skill-pill"><i class="fab fa-html5"></i>HTML</span>
+                    <span class="skill-pill"><i class="fab fa-css3-alt"></i>CSS</span>
+                    <span class="skill-pill"><i class="fas fa-database"></i>SQL</span>
+                </div>
+            </div>
+
+            <!-- Core CS & Backend -->
+            <div class="skill-category-card p-8 rounded-lg shadow-xl bg-gray-800 transition-transform transform hover:scale-105">
+                <h3 class="text-2xl font-semibold text-warning mb-6 flex items-center"><i class="fas fa-brain mr-3"></i>Core CS</h3>
+                <div class="flex flex-wrap gap-4">
+                    <span class="skill-pill"><i class="fa-solid fa-table"></i>Data Structures & Algorithms</span>
+                    <span class="skill-pill"><i class="fas fa-database"></i>DBMS</span>
+                    <span class="skill-pill"><i class="fa-solid fa-network-wired"></i>System Design Concepts</span>
+                </div>
+            </div>
+
+            <!-- Databases & ORM -->
+            <div class="skill-category-card p-8 rounded-lg shadow-xl bg-gray-800 transition-transform transform hover:scale-105">
+                <h3 class="text-2xl font-semibold text-warning mb-6 flex items-center"><i class="fas fa-server mr-3"></i>Databases</h3>
+                <div class="flex flex-wrap gap-4">
+                    <span class="skill-pill"><i class="fas fa-database"></i>MySQL / Workbench</span>
+                    <span class="skill-pill"><i class="fas fa-database"></i>MongoDB</span>
+                </div>
+            </div>
+
+            <!-- Web Development -->
+            <div class="skill-category-card p-8 rounded-lg shadow-xl bg-gray-800 transition-transform transform hover:scale-105">
+                <h3 class="text-2xl font-semibold text-warning mb-6 flex items-center"><i class="fas fa-laptop-code mr-3"></i>Web Development</h3>
+                <div class="flex flex-wrap gap-4">
+                    <span class="skill-pill">Frontend (HTML, CSS, JS)</span>
+                    <span class="skill-pill"><i class="fab fa-node-js"></i>Node.js</span>
+                    <span class="skill-pill"><i class="fas fa-user"></i>Express.js</span>
+                    <span class="skill-pill"><i class="fab fa-python"></i>Django (Full Stack)</span>
+                    <span class="skill-pill"><i class="fab fa-react"></i>React Native</span>
+                </div>
+            </div>
+
+            <!-- Web Scraping & Automation -->
+            <div class="skill-category-card p-8 rounded-lg shadow-xl bg-gray-800 transition-transform transform hover:scale-105">
+                <h3 class="text-2xl font-semibold text-warning mb-6 flex items-center"><i class="fas fa-robot mr-3"></i>Web Scraping & Automation</h3>
+                <div class="flex flex-wrap gap-4">
+                    <span class="skill-pill"><i class="fa-solid fa-code"></i>BeautifulSoup</span>
+                    <span class="skill-pill"><i class="fa-solid fa-code"></i>Selenium</span>
+                </div>
+            </div>
+
+            <!-- Data & Machine Learning -->
+            <div class="skill-category-card p-8 rounded-lg shadow-xl bg-gray-800 transition-transform transform hover:scale-105">
+                <h3 class="text-2xl font-semibold text-warning mb-6 flex items-center"><i class="fas fa-chart-line mr-3"></i>Data & Machine Learning</h3>
+                <div class="flex flex-wrap gap-4">
+                    <span class="skill-pill"><i class="fa-solid fa-magnifying-glass-chart"></i>Data Wrangling</span>
+                    <span class="skill-pill"><i class="fa-solid fa-chart-column"></i>Predictive Modeling (Beginner)</span>
+                    <span class="skill-pill"><i class="fa-solid fa-table"></i>Pandas</span>
+                    <span class="skill-pill"><i class="fa-solid fa-table"></i>Numpy</span>
+                    <span class ="skill-pill"><i class="fa-solid fa-chart-simple"></i>Machine Learning Concepts</span>
+                </div>
+            </div>
+
+            <!-- Cloud & DevOps -->
+            <div class="skill-category-card p-8 rounded-lg shadow-xl bg-gray-800 transition-transform transform hover:scale-105">
+                <h3 class="text-2xl font-semibold text-warning mb-6 flex items-center"><i class="fas fa-cloud mr-3"></i>Cloud & DevOps</h3>
+                <div class="flex flex-wrap gap-4">
+                    <span class="skill-pill"><i class="fab fa-aws"></i>AWS</span>
+                    <span class="skill-pill"><i class="fab fa-linux"></i>Linux & Ubuntu</span>
+                    <span class="skill-pill"><i class="fab fa-git-alt"></i>Git & GitHub</span>
+                </div>
+            </div>
+
+            <!-- Tools and Project Management -->
+            <div class="skill-category-card p-8 rounded-lg shadow-xl bg-gray-800 transition-transform transform hover:scale-105">
+                <h3 class="text-2xl font-semibold text-warning mb-6 flex items-center"><i class="fas fa-cloud mr-3"></i>Tools and Project Management </h3>
+                <div class="flex flex-wrap gap-4">
+                    <span class = "skill-pill"><i class="fa-solid fa-chart-column"></i>PowerBI</span>
+                    <span class="skill-pill"><i class="fab fa-git-alt"></i>Github</span>
+                    <span class="skill-pill"><i class="fa-brands fa-jira"></i>Jira</span>
+                    <span class="skill-pill"><i class="fa-solid fa-code"></i>VS code </span>
+                    <span class = "skill-pill"><i class="fa-brands fa-java"></i>IntelliJ</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Resume section -->
+<section id="resume-section" class="py-16 lg:py-24 bg-gradient-to-r from-blackBg to-gray-900 text-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16 relative">
+            <h1 class="text-6xl lg:text-8xl font-extrabold text-warning opacity-20 absolute left-0 right-0 -top-6 z-0 tracking-wide glow-text">
+                Resume
+            </h1>
+            <h2 class="text-4xl lg:text-5xl font-bold text-warning relative z-10 tracking-wider">Resume</h2>
+        </div>
+
+        <div class="border-t border-gray-600 mx-auto w-1/3 mb-12"></div>
+
+        <div class="text-center mt-12">
+            <a href="https://drive.google.com/file/d/1vLF8grC-PT47WEtMfanBj40mVdA5-vdl/view?usp=sharing" 
+               target="_blank" rel="noopener noreferrer" 
+               class="btn btn-primary py-4 px-8 rounded-md text-lg font-semibold shadow-xl transition-transform transform hover:scale-105 hover:shadow-2xl">
+                📄 Download CV
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Internship Experience -->
+<section id="resume-section" class="py-16 lg:py-24 bg-gradient-to-r from-blackBg to-gray-900 text-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16 relative">
+            <div class="mb-16">
+    <h1 class="text-6xl lg:text-8xl font-extrabold text-warning opacity-20 absolute left-0 right-0 -top-6 z-0 tracking-wide glow-text">
+    Internship
+    </h1>
+    <h2 class="text-4xl lg:text-5xl font-bold text-warning relative z-10 tracking-wider">Internship Experience</h2>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-12">
+        <!-- Internship Card 1 -->
+        <div class="resume-wrap p-8 bg-gray-800 rounded-xl shadow-lg border border-transparent transition-all transform hover:scale-105 hover:border-warning">
+            <span class="date text-sm text-gray-400">🌍 Remote</span>
+            <h2 class="text-2xl font-bold mt-2 mb-2 text-white">Summer Intern</h2>
+            <span class="position text-md text-warning">BlackBucks (Startup, India)</span>
+            <p class="mt-4 text-gray-300 text-md leading-relaxed">
+                Collected, structured, and entered vital data  
+                Delivered engaging project presentations & concise updates to senior staff  
+                Produced comprehensive reports with strategic recommendations  
+            </p>
+        </div>
+
+        <!-- Internship Card 2 -->
+        <div class="resume-wrap p-8 bg-gray-800 rounded-xl shadow-lg border border-transparent transition-all transform hover:scale-105 hover:border-warning">
+            <span class="date text-sm text-gray-400">🌍 Remote</span>
+            <h2 class="text-2xl font-bold mt-2 mb-2 text-white">Data Analyst</h2>
+            <span class="position text-md text-warning">StatSkew (Startup) </span>
+            <p class="mt-4 text-gray-300 text-md leading-relaxed">
+                Performed market research & analysis, boosting website growth (~100%) and conversion (+30% YoY)  
+                Conducted training on SQL, Excel, Power BI, Tableau, Python  
+                Led data migration for merchandising dashboards  
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Education Section -->
+<section id="resume-section" class="py-16 lg:py-24 bg-gradient-to-r from-blackBg to-gray-900 text-white">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16 relative">
+<div id="education-section" class="mb-16">
+    
+    <h1 class="text-6xl lg:text-8xl font-extrabold text-warning opacity-20 absolute left-0 right-0 -top-6 z-0 tracking-wide glow-text">
+    Education
+    </h1>
+    <h2 class="text-4xl lg:text-5xl font-bold text-warning relative z-10 tracking-wider">Education</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-12">
+        <!-- Master's Degree -->
+        <div class="resume-wrap p-8 bg-gray-800 rounded-xl shadow-lg border border-transparent transition-transform transform hover:scale-105 hover:border-warning">
+            <div class="flex items-center mb-4">
+                <i class="fas fa-graduation-cap text-warning text-3xl mr-3"></i>
+                <span class="date text-lg text-gray-400">📅 2024 - 2026 (Expected)</span>
+            </div>
+            <h2 class="text-2xl font-bold text-white">Master's in Computer Science</h2>
+            <span class="position text-lg text-warning">University of North Texas, US</span>
+            <p class="mt-4 text-gray-300 text-md leading-relaxed">Focusing on Software developement ,AI, machine learning, and big data analysis.</p>
+        </div>
+
+        <!-- Bachelor's Degree -->
+        <div class="resume-wrap p-8 bg-gray-800 rounded-xl shadow-lg border border-transparent transition-transform transform hover:scale-105 hover:border-warning">
+            <div class="flex items-center mb-4">
+                <i class="fas fa-user-graduate text-warning text-3xl mr-3"></i>
+                <span class="date text-lg text-gray-400">🎓 2020 - 2024</span>
+            </div>
+            <h2 class="text-2xl font-bold text-white">Bachelor of Engineering</h2>
+            <span class="position text-lg text-warning">NRI Institute of Technology, India</span>
+            <p class="mt-4 text-gray-300 text-md leading-relaxed">Grade: First Class Distinction.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Acheivements section -->
+<section id="resume-section" class="py-16 lg:py-24 bg-gradient-to-r from-blackBg to-gray-900 text-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16 relative">
+      <h1 class="text-6xl lg:text-8xl font-extrabold text-warning opacity-20 absolute left-0 right-0 -top-6 z-0 tracking-wide glow-text">
+        Achievements
+      </h1>
+      <h2 class="text-4xl lg:text-5xl font-bold text-warning relative z-10 tracking-wider">Awards & Honors</h2>
+    </div>
+
+    <div class="border-t border-gray-600 mx-auto w-1/3 mb-12"></div>
+
+    <!-- Honors & Awards Section -->
+    <section id="honors-awards-section" class="py-16 bg-blackBg">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 justify-center">
+          <!-- Award Item 1 -->
+          <div class="resume-wrap p-8 bg-gray-800 rounded-xl shadow-lg border border-transparent transition-transform transform hover:scale-105 hover:border-warning text-center">
+            <div class="flex items-center justify-center mb-4">
+              <i class="fas fa-trophy text-warning text-3xl mr-3"></i>
+              <span class="date text-lg text-gray-400">2025</span>
+            </div>
+            <h2 class="text-2xl font-bold text-white">Runners in Hackathon 2025 </h2>
+            <span class="position text-lg text-warning">GrandInnoHack 2025 @UNT</span>
+            <p class="mt-4 text-gray-300 text-md leading-relaxed">
+              I'm incredibly proud to share that our team's innovative application, SafePath, secured 3rd place among a field of truly talented competitors .
+            </p>
+          </div>
+
+          <!-- Award Item 2 -->
+          <div class="resume-wrap p-8 bg-gray-800 rounded-xl shadow-lg border border-transparent transition-transform transform hover:scale-105 hover:border-warning text-center">
+            <div class="flex items-center justify-center mb-4">
+              <i class="fas fa-medal text-warning text-3xl mr-3"></i>
+              <span class="date text-lg text-gray-400">2022</span>
+            </div>
+            <h2 class="text-2xl font-bold text-white">Augumented Reality Make-A-Thon</h2>
+            <span class="position text-lg text-warning">Reskilll X SparkAR</span>
+            <p class="mt-4 text-gray-300 text-md leading-relaxed">
+              Awarded for engagement and contribution during the AR Make-a-thon.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+
+<!--Projects Section-->
+<section id="projects-section" class="py-16 lg:py-24 bg-gradient-to-r from-blackBg to-gray-900 text-white">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16 relative">
+            <h1 class="text-6xl lg:text-8xl font-extrabold text-warning opacity-20 absolute left-0 right-0 -top-6 z-0 tracking-wide glow-text">
+                Projects
+            </h1>
+            <h2 class="text-4xl lg:text-5xl font-bold text-warning relative z-10 tracking-wider">My Projects</h2>
+        </div>
+
+        <div class="border-t border-gray-600 mx-auto w-1/3 mb-12"></div>
+
+        <!-- Capstone Projects -->
+        <div id="capstone-projects" class="mb-16">
+            <h2 class="text-3xl lg:text-4xl font-semibold text-center text-warning mb-12 tracking-wide">Capstone Project</h2>
+            <div class="grid md:grid-cols-4 lg:grid-cols-1 gap-20">
+                
+                <div class="blog-entry bg-gray-800 p-8 rounded-xl shadow-lg border border-transparent transition-transform transform hover:scale-105 hover:border-warning">
+                    <!-- Below give the github repo link -->
+                    <a href="" target="_blank" rel="noopener noreferrer"> 
+                        <img src="unt.jpeg" alt="Health Care Project" class="rounded-md mb-4">
+                    </a>
+                    <h3 class="text-xl font-semibold mb-2 flex items-center gap-2">
+                        UNT Cafeteria App 
+                        <span class="text-xs bg-yellow-600 text-white px-2 py-1 rounded-md">In Progress</span>
+                    </h3>
+                    <p class="text-gray-400 text-md">
+                        The UNT Cafeteria App is a mobile application developed as a capstone project to streamline the dining experience for University of North Texas students, faculty, and staff. Built using React Native, Redux, and a Node.js backend with MongoDB, the app provides a user-friendly interface to browse cafeteria menus, view item details, and manage favorite dishes.
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+
+        <section id="core-projects" class="py-16 lg:py-24 bg-gradient-to-r from-blackBg to-gray-900 text-white">
+  <div class="container mx-auto px-6">
+    <!-- Header Section -->
+    <div class="text-center mb-20 relative">
+      
+      <h2 class="text-4xl lg:text-5xl font-bold text-warning relative z-10 tracking-wider">
+        Core Projects
+      </h2>
+      <p class="text-gray-400 mt-4 max-w-2xl mx-auto text-lg">
+        A showcase of some impactful and innovative projects demonstrating skills across software development, machine learning, and UI/UX.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+      <!-- Project 1: SafePath -->
+      <div class="blog-entry bg-gray-800 p-6 rounded-2xl shadow-xl border border-gray-700 hover:border-warning hover:shadow-warning transition duration-300 transform hover:-translate-y-2">
+        <img src="logo (1).png" alt="SafePath" class="rounded-md mb-4 w-full object-cover h-48">
+        <h3 class="text-2xl font-semibold text-white mb-2">SafePath</h3>
+        <p class="text-sm text-warning font-medium mb-2">Hackathon · Multilingual Navigation · 3rd Place</p>
+        <p class="text-gray-300 text-md leading-relaxed">
+          A multilingual assistant designed for travelers to navigate airports effortlessly. Developed during a university hackathon, SafePath secured <strong>3rd place</strong> for its real-world innovation. 🌍✈️
+        </p>
+        <div class="flex flex-wrap gap-4 mt-4">
+          <a href="https://github.com/joeljohn159/safePath" target="_blank" class="text-sm text-warning underline hover:text-yellow-400">
+            🔗 GitHub Repository
+          </a>
+          <a href="https://drive.google.com/file/d/1BPqnzZ3JdqLjhUG6f9iO8yhziQIiWqPG/view" target="_blank" class="text-sm text-warning underline hover:text-yellow-400">
+            🎥 Video Demo
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2: Indoor Sports Booking -->
+      <div class="blog-entry bg-gray-800 p-6 rounded-2xl shadow-xl border border-gray-700 hover:border-warning hover:shadow-warning transition duration-300 transform hover:-translate-y-2">
+        <img src="Screenshot (2755).png" alt="Indoor Sports Booking" class="rounded-md mb-4 w-full object-cover h-48">
+        <h3 class="text-2xl font-semibold text-white mb-2">Indoor Sports Booking System</h3>
+        <p class="text-sm text-warning font-medium mb-2">Django · Full-Stack · Slot & Equipment Booking</p>
+        <p class="text-gray-300 text-md leading-relaxed">
+          A responsive full-stack web app built with Django to manage indoor sports facilities. Includes real-time booking, equipment rentals, and user/admin role-based dashboards.
+        </p>
+        <div class="flex flex-wrap gap-4 mt-4">
+          <a href="https://github.com/vishnureddy2411/Software-engineering-project" target="_blank" class="text-sm text-warning underline hover:text-yellow-400">
+            🔗 GitHub Repository
+          </a>
+          <a href="https://drive.google.com/file/d/1abuqSM-Wt5fvqoxFgl-WPBkQ-XRHmvH5/view?usp=sharing" target="_blank" class="text-sm text-warning underline hover:text-yellow-400">
+            🎥 Video Demo
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3: Multiple Disease Prediction -->
+      <div class="blog-entry bg-gray-800 p-6 rounded-2xl shadow-xl border border-gray-700 hover:border-warning hover:shadow-warning transition duration-300 transform hover:-translate-y-2">
+        <img src="health_care.jpg" alt="Multiple Disease Prediction" class="rounded-md mb-4 w-full object-cover h-48">
+        <h3 class="text-2xl font-semibold text-white mb-2">Multiple Disease Prediction System</h3>
+        <p class="text-sm text-warning font-medium mb-2">Machine Learning · Streamlit · Health Analytics</p>
+        <p class="text-gray-300 text-md leading-relaxed">
+          A machine learning web app that predicts heart disease, Parkinson's, and diabetes from patient data using trained models. Built with <strong>Streamlit</strong> for a smooth user interface.
+        </p>
+        <div class="flex flex-wrap gap-4 mt-4">
+          <a href="https://github.com/SaranyaM15/Multiple-Disease-Prediction-System" target="_blank" class="text-sm text-warning underline hover:text-yellow-400">
+            🔗 GitHub Repository
+          </a>
+          <a href="https://ijrar.org/viewfull.php?&p_id=IJRAR24A2866" target="_blank" class="text-sm text-warning underline hover:text-yellow-400">
+            📜 Research Publication
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+        <!-- Experimental Projects -->
+        <div id="experimental-projects">
+            <h3 class="text-3xl lg:text-4xl font-semibold text-center text-warning mb-12 tracking-wide">Experimental Projects</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div class="blog-entry bg-gray-800 p-8 rounded-xl shadow-lg border border-transparent transition-transform transform hover:scale-105 hover:border-warning">
+                    <a href="https://github.com/SaranyaM15/EAPCET_BOT" target="_blank" rel="noopener noreferrer">
+                        <img src="Bot.jpg" alt="EAPCET Bot" class="rounded-md mb-4">
+                    </a>
+                    <h3 class="text-xl font-semibold mb-2">EAPCET Bot</h3>
+                    <p class="text-gray-400 text-md">AI-powered bot providing real-time guidance for EAPCET admissions, college recommendations, and deadlines.</p>
+                </div>
+
+                <div class="blog-entry bg-gray-800 p-8 rounded-xl shadow-lg border border-transparent transition-transform transform hover:scale-105 hover:border-warning">
+                    <a href="https://app.powerbi.com/links/84kYgcnNvL" target="_blank" rel="noopener noreferrer">
+                        <img src="netflix.jpg" alt="Netflix Dashboard" class="rounded-md mb-4">
+                    </a>
+                    <h3 class="text-xl font-semibold mb-2">Netflix Analysis Dashboard</h3>
+                    <p class="text-gray-400 text-md">Power BI dashboard analyzing Netflix dataset, visualizing key insights.</p>
+                </div>
+                <div class="blog-entry bg-gray-800 p-8 rounded-xl shadow-lg border border-transparent transition-transform transform hover:scale-105 hover:border-warning">
+                    <a href="https://github.com/SaranyaM15/FIFA_Analysis" target="_blank" rel="noopener noreferrer">
+                        <img src="fifa-world-cup.jpg" alt="Fifa" class="rounded-md mb-4">
+                    </a>
+                    <h3 class="text-xl font-semibold mb-2">FIFA Analysis</h3>
+                    <p class="text-gray-400 text-md">This project aims to analyze FIFA (Fédération Internationale de Football Association) data to gain insights into player performance, team strategies, and trends in the world of soccer.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+<section id="contact-section" class="py-16 lg:py-24 bg-darkBg text-white">
+  <div class="container mx-auto px-4">
+    
+    <!-- Heading -->
+    <div class="text-center mb-16 relative">
+      <h1 class="text-6xl lg:text-8xl font-extrabold text-warning opacity-10 absolute left-0 right-0 -top-6 z-0 tracking-wider">
+        Contact
+      </h1>
+      <h2 class="text-3xl lg:text-4xl font-bold text-warning relative z-10 mb-4">
+        Contact Me
+      </h2>
+      <p class="text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Feel free to reach out! Below are my contact details and resume link. Let's connect.
+      </p>
+    </div>
+
+    <!-- Contact Cards -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+      <div class="bg-blackBg p-6 rounded-lg shadow-xl text-center">
+        <div class="text-warning text-3xl mb-4">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-warning mb-2">Address</h3>
+        <p class="text-gray-300">Denton, Texas</p>
+      </div>
+      <div class="bg-blackBg p-6 rounded-lg shadow-xl text-center">
+        <div class="text-warning text-3xl mb-4">
+          <i class="fas fa-phone-alt"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-warning mb-2">Phone</h3>
+        <p>
+          <a href="tel:+1234567890" class="text-gray-300 hover:text-warning">+1 (YourNumber)</a>
+        </p>
+      </div>
+      <div class="bg-blackBg p-6 rounded-lg shadow-xl text-center">
+        <div class="text-warning text-3xl mb-4">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-warning mb-2">Email</h3>
+        <p>
+          <a href="mailto:SaranyaMadala@my.unt.edu" class="text-gray-300 hover:text-warning">
+            SaranyaMadala@my.unt.edu
+          </a>
+        </p>
+      </div>
+      <div class="bg-blackBg p-6 rounded-lg shadow-xl text-center">
+        <div class="text-warning text-3xl mb-4">
+          <i class="fas fa-file-alt"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-warning mb-2">Resume</h3>
+        <p>
+          <a href="https://saranya-resume.tiiny.site" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-warning">
+            Download Resume
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Ask a Question -->
+    <div class="text-center mb-12">
+      <h2 class="text-2xl font-medium text-white mb-4">Have a Question?</h2>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8wsk2FFlEkWGIFjnqf5cSgpexPzciauXNaocglFzqF5xPNg/viewform?usp=pp_url"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="inline-block bg-warning text-black px-6 py-3 rounded-md text-lg font-semibold shadow-lg hover:bg-yellow-400 transition">
+        📩 Ask Here
+      </a>
+    </div>
+
+    <!-- Social Media -->
+    <div class="text-center">
+      <p class="text-gray-400 mb-4 text-lg">Find me on:</p>
+      <ul class="flex justify-center space-x-6 text-2xl">
+        <li>
+          <a href="https://www.linkedin.com/in/saranyamadala/" target="_blank" class="text-warning hover:text-white">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/saranya.madala.3" target="_blank" class="text-warning hover:text-white">
+            <i class="fab fa-facebook-square"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/_saranya15_/" target="_blank" class="text-warning hover:text-white">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="ftco-footer ftco-section py-8 bg-blackBg">
+  <div class="container mx-auto px-4">
+    <div class="text-center">
+      <p class="text-gray-400 text-sm">
+        &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Saranya Madala
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <!-- Loader (You might need to adjust its styling or replace with a Tailwind-based one) -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+    <!-- Original Scripts (Ensure these are still needed and correctly linked) -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap JS for navbar toggle, etc. -->
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="js/main.js"></script> <!-- Your main custom JS file -->
+
+    <script>
+        // Typing Animation Script (Optimized)
+        document.addEventListener('DOMContentLoaded', function() {
+            const typingAnimationElement = document.getElementById('typing-animation');
+            if (typingAnimationElement) {
+                const typingTexts = [
+                    'Engineer',
+                    'Masters in CS',
+                    
+                    
+                    'Web Developer' // Added one more
+                ];
+                let textIndex = 0;
+                let charIndex = 0;
+                let currentText = '';
+                let isDeleting = false;
+
+                function type() {
+                    currentText = typingTexts[textIndex];
+                    if (isDeleting) {
+                        typingAnimationElement.textContent = currentText.substring(0, charIndex - 1);
+                        charIndex--;
+                    } else {
+                        typingAnimationElement.textContent = currentText.substring(0, charIndex + 1);
+                        charIndex++;
+                    }
+
+                    if (!isDeleting && charIndex === currentText.length) {
+                        setTimeout(() => isDeleting = true, 2000); // Pause at end
+                    } else if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        textIndex = (textIndex + 1) % typingTexts.length;
+                    }
+                    
+                    const typeSpeed = isDeleting ? 100 : 150;
+                    setTimeout(type, typeSpeed);
+                }
+                type(); // Start the animation
+            }
+
+            // AOS Initialization (if you are using it)
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    easing: 'slide',
+                    once: true // Animations trigger once
+                });
+            }
+            
+            // Loader removal (from your original main.js, simplified)
+            const loader = document.getElementById('ftco-loader');
+            if (loader) {
+                setTimeout(() => {
+                    loader.classList.remove('show');
+                }, 500); // Adjust timing as needed
+            }
+
+            // Smooth scrolling for navbar links (if not handled by Bootstrap's scrollspy)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const hrefAttribute = this.getAttribute('href');
+                    // Ensure it's a valid section ID and not just "#"
+                    if (hrefAttribute && hrefAttribute.length > 1 && document.querySelector(hrefAttribute)) {
+                        e.preventDefault();
+                        document.querySelector(hrefAttribute).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
